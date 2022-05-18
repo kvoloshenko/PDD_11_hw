@@ -53,14 +53,18 @@ class Card:
             # print(nums)
             s = ''
             for num in nums:
-                if num == 0: s += '    '
-                elif num == -1: s += '  - '
-                elif num > 10: s += ' ' +str(num) + ' '
-                else: s += '  ' + str(num) + ' '
+                if num == 0:
+                    s += '    '
+                elif num == -1:
+                    s += '  - '
+                elif num > 10:
+                    s += ' ' + str(num) + ' '
+                else:
+                    s += '  ' + str(num) + ' '
             print(s)
         print('-------------------------------')
 
-    def cross_out (self, num):
+    def cross_out(self, num):
         rez = False
         for card_line in self.__lines:
             index = card_line.cross_out(num)
@@ -73,15 +77,33 @@ class Card:
     def is_crossed(self):
         rezault = 0
         for card_line in self.__lines:
-            if card_line.is_crossed(): rezault +=1
-        if rezault == 3: return True
-        else: return  False
+            if card_line.is_crossed(): rezault += 1
+        if rezault == 3:
+            return True
+        else:
+            return False
 
     def __init__(self):
         self.__lines = []
         self.__set_nums()
         self.__header = '-------------------------------'
 
+    def __str__(self):
+        s = self.__header + '\n'
+        for card_line in self.__lines:
+            nums = card_line.get_nums()
+            for num in nums:
+                if num == 0:
+                    s += '    '
+                elif num == -1:
+                    s += '  - '
+                elif num > 10:
+                    s += ' ' + str(num) + ' '
+                else:
+                    s += '  ' + str(num) + ' '
+            s += '\n'
+        s += '-------------------------------' + '\n'
+        return s
 
 class Card_line:
 
@@ -103,26 +125,34 @@ class Card_line:
     def get_nums(self):
         return self.__nums
 
-    def cross_out (self, num):
+    def cross_out(self, num):
         index = -1
-        # print(f'count={self.__nums.count(num)}')
-        if self.__nums.count(num):
-            # print(f'  index={self.__nums.index(num)}')
+        if self.__contains__(num):
             index = self.__nums.index(num)
             self.__nums[index] = -1
-            # print(f'   self.__nums[{index}]={self.__nums[index]}')
         return index
 
     def is_crossed(self):
-        if self.__nums.count(-1) == 5 : return True
-        else: return False
+        if self.__nums.count(-1) == 5:
+            return True
+        else:
+            return False
 
+    def __eq__(self, other):
+        return str(self) == str(other)
+
+    def __contains__(self, num):
+        return self.__nums.__contains__(num)
 
 
 # if __name__ == '__main__':
 #     crd = Card()
+#     print(crd)
 #     crd.set_header('------ Ваша карточка ----------')
 #     crd.print_card()
+#     c = Card()
+#     print(crd == crd)
+#     print(crd == c)
 #     rez = crd.cross_out(1)
 #     if rez: crd.print_card()
 #     rez = crd.cross_out(21)

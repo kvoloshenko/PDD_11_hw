@@ -18,3 +18,18 @@ class TestKegs:
         assert k.get_current() == 0
         k.get_next()
         assert k.get_current() == 1
+
+    def test_len(self):
+        k = Kegs()
+        assert len (k) == 90
+
+    def test_getitem(self):
+        k = Kegs()
+        assert k.get_next() == k[k.get_current()-1]
+        assert k.get_next() == k[k.get_current() - 1]
+
+    def test_eq(self):
+        k1 = Kegs()
+        k2 = Kegs()
+        assert k1 == k1
+        assert not k1 == k2
