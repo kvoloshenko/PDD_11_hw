@@ -88,7 +88,6 @@ class Card:
         self.__set_nums()
         self.__header = '-------------------------------'
 
-
     def __str__(self):
         s = self.__header + '\n'
         for card_line in self.__lines:

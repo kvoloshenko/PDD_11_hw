@@ -31,3 +31,19 @@ class TestPlayer:
         name = 'Test_name'
         p.set_name(name)
         assert p.get_name() == name
+
+    def test_str(self):
+        p = Player()
+        name = 'Test_name'
+        p.set_name(name)
+        assert f'type={p.get_type()} name={p.get_name()}' == str(p)
+
+    def test_eq(self):
+        p1 = Player()
+        p1.set_name('Test_name 1')
+        p2 = Player()
+        p2.set_name('Test_name 2')
+        assert p1 == p1
+        assert not p1 == p2
+
+

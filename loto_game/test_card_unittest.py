@@ -1,5 +1,7 @@
 import unittest
 from loto_game.card import Card_line
+from loto_game.card import Card
+from loto_game.kegs import Kegs
 
 class TestCard(unittest.TestCase):
     def test_card_line_set_nums(self):
@@ -16,3 +18,27 @@ class TestCard(unittest.TestCase):
         # print(f'len(new_nums)={len(new_nums)}')
         test_l = [1, 2, 0, 0, 3, 4, 5, 0, 0]
         self.assertCountEqual(test_l, new_nums)
+
+    def test_card_line_eq(self):
+        card_line_1 = Card_line()
+        card_line_1.set_nums([1, 2, 3, 4, 5])
+        card_line_2 = Card_line()
+        card_line_2.set_nums([5, 4, 3, 2, 1])
+        self.assertEqual(card_line_1,card_line_1)
+        self.assertNotEqual(card_line_1,card_line_2)
+
+    def test_card_is_crossed(self):
+        crd = Card()
+        k = Kegs()
+        while k.get_current() < 90:
+            num = k.get_next().get_num()
+            # print(num)
+            crd.cross_out(num)
+        # crd.print_card()
+        self.assertEqual(crd.is_crossed(),True)
+
+    def test_set_header(self):
+        crd = Card()
+        header = 'Test string'
+        crd.set_header(header)
+        self.assertIn(header, str(crd))
