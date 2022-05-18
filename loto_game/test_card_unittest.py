@@ -27,6 +27,12 @@ class TestCard(unittest.TestCase):
         self.assertEqual(card_line_1,card_line_1)
         self.assertNotEqual(card_line_1,card_line_2)
 
+    def test_card_line_contains(self):
+        card_line_1 = Card_line()
+        card_line_1.set_nums([1, 2, 3, 4, 5])
+        self.assertTrue(card_line_1.__contains__(5))
+        self.assertFalse(card_line_1.__contains__(7))
+
     def test_card_is_crossed(self):
         crd = Card()
         k = Kegs()
@@ -35,7 +41,7 @@ class TestCard(unittest.TestCase):
             # print(num)
             crd.cross_out(num)
         # crd.print_card()
-        self.assertEqual(crd.is_crossed(),True)
+        self.assertTrue(crd.is_crossed())
 
     def test_set_header(self):
         crd = Card()
