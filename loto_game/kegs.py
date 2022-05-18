@@ -40,11 +40,15 @@ class Kegs:
     def __len__(self):
         return len(self.__kegs)
 
+    def __getitem__(self, item):
+        return self.__kegs[item]
+
 # if __name__ == '__main__':
 #     k = Kegs()
 #     print(f'kegs = {k}')
 #     print(f'len of kegs={len(k)}')
-#     # print(f'k.get_current()={k.get_current()}')
+#     print(k[1])
+#     print(f'k.get_current()={k.get_current()}')
 #     kegs = k.get_kegs()
 #     print(type(kegs), f' len(kegs)={len(kegs)} kegs={kegs}')
 #     keg = kegs[0]
