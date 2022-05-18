@@ -1,0 +1,27 @@
+PS D:\_AI\PDD_11_hw> pytest --cov
+============================================================= test session starts ==============================================================
+platform win32 -- Python 3.10.4, pytest-7.1.2, pluggy-1.0.0
+rootdir: D:\_AI\PDD_11_hw
+plugins: cov-3.0.0
+collected 11 items
+
+
+---------- coverage: platform win32, python 3.10.4-final-0 -----------
+Name                              Stmts   Miss  Cover
+-----------------------------------------------------
+loto_game\__init__.py                 0      0   100%
+loto_game\card.py                    79     30    62%
+loto_game\keg.py                      7      0   100%
+loto_game\kegs.py                    21      0   100%
+loto_game\player.py                  17      0   100%
+loto_game\test_card_unittest.py      15      0   100%
+loto_game\test_keg.py                 6      0   100%
+loto_game\test_keg_unittest.py        7      0   100%
+loto_game\test_kegs.py               16      0   100%
+loto_game\test_player.py             26      0   100%
+-----------------------------------------------------
+TOTAL                               194     30    85%
+
+
+============================================================== 11 passed in 0.99s ==============================================================
+PS D:\_AI\PDD_11_hw>
