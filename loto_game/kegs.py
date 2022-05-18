@@ -37,10 +37,13 @@ class Kegs:
             if self.get_current() < 90: s+=', '
         return s
 
+    def __len__(self):
+        return len(self.__kegs)
 
 # if __name__ == '__main__':
 #     k = Kegs()
 #     print(f'kegs = {k}')
+#     print(f'len of kegs={len(k)}')
 #     # print(f'k.get_current()={k.get_current()}')
 #     kegs = k.get_kegs()
 #     print(type(kegs), f' len(kegs)={len(kegs)} kegs={kegs}')
