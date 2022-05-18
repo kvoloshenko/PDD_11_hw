@@ -30,8 +30,17 @@ class Kegs:
         # print(f'i={self.__i}')
         self.__kreate_kegs()
 
+    def __str__(self):
+        s=''
+        for keg in self.__kegs:
+            s+=str(self.get_next())
+            if self.get_current() < 90: s+=', '
+        return s
+
+
 # if __name__ == '__main__':
 #     k = Kegs()
+#     print(f'kegs = {k}')
 #     # print(f'k.get_current()={k.get_current()}')
 #     kegs = k.get_kegs()
 #     print(type(kegs), f' len(kegs)={len(kegs)} kegs={kegs}')

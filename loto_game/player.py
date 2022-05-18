@@ -24,9 +24,14 @@ class Player:
         self.set_type('Human')
         self.set_card(Card())
 
+    def __str__(self):
+        return f'type={self.__type} name={self.name}'
 
 # if __name__ == '__main__':
 #     players = []
+#     p = Player()
+#     p.set_name('Константин')
+#     print(f'Player: {p}')
 #     p1 = Player()
 #     p1.set_name('Константин')
 #     c1 = p1.get_card()

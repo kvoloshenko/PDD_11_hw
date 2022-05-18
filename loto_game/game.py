@@ -138,7 +138,10 @@ class Game:
                 print(' Кончились боченки')
                 break
 
+    def __str__(self):
+        return f'class Game: ' + str(type(self))
 
 if __name__ == '__main__':
     game = Game()
-    game.run()
+    print(game)
+    # game.run()
