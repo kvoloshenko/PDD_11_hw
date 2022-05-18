@@ -1,6 +1,7 @@
 from loto_game.keg import Keg
 import random
 
+
 class Kegs:
 
     def __kreate_kegs(self):
@@ -16,9 +17,9 @@ class Kegs:
 
     def get_next(self):
         # print(f' i before get_nex={self.__i}')
-        k = self.__kegs[self.__i]
+        keg = self.__kegs[self.__i]
         self.__i += 1
-        return k
+        return keg
 
     def get_current(self):
         return self.__i
@@ -31,10 +32,13 @@ class Kegs:
         self.__kreate_kegs()
 
     def __str__(self):
-        s=''
+        s = ''
+        i = 0
         for keg in self.__kegs:
-            s+=str(self.get_next())
-            if self.get_current() < 90: s+=', '
+            s += str(keg)
+            if i < 89:
+                s += ', '
+                i+=1
         return s
 
     def __len__(self):
@@ -43,11 +47,20 @@ class Kegs:
     def __getitem__(self, item):
         return self.__kegs[item]
 
+    def __eq__(self, other):
+        return str(self) == str(other)
+
+
 # if __name__ == '__main__':
 #     k = Kegs()
-#     print(f'kegs = {k}')
+#     print(f'k = {k}')
 #     print(f'len of kegs={len(k)}')
 #     print(k[1])
+#     k2 = Kegs()
+#     print(f'k2 = {k2}')
+#     print(f'k2 = {k2}')
+#     print(k == k)
+#     print(k == k2)
 #     print(f'k.get_current()={k.get_current()}')
 #     kegs = k.get_kegs()
 #     print(type(kegs), f' len(kegs)={len(kegs)} kegs={kegs}')

@@ -142,12 +142,17 @@ class Card_line:
         else:
             return False
 
+    def __eq__(self, other):
+        return str(self) == str(other)
 
 # if __name__ == '__main__':
 #     crd = Card()
 #     print(crd)
 #     crd.set_header('------ Ваша карточка ----------')
 #     crd.print_card()
+#     c = Card()
+#     print(crd == crd)
+#     print(crd == c)
 #     rez = crd.cross_out(1)
 #     if rez: crd.print_card()
 #     rez = crd.cross_out(21)
